@@ -141,9 +141,68 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+
+```
+The core features of Node.js is: 
+- Node.js is used for building the server/backend for an application and it uses JavaScript
+- There are numerous third party libraries which can be installed using npm and  used while writing a server in Node.js
+- Since Javascript supports asynchronous code, we can continue to use this feature while writing a server on the backend using Node.js 
+
+The core features of Express.js is:
+- Express is simple, unopinionated, light-weight and extensible. 
+- Express is packaged into a clean and easy to use API
+- It abstracts away a lot of the common steps involved in writing web applications for the backend therey making the process less verbose
+- Express can be used for building RESTful web services which work with JSON. 
+- Express can be used to serve static content such as HTML files, images, audio files and PDFs
+
+```
+
+
+2. Understand and explain the use of Middleware.
+
+```
+Middlewares are anything which help us extend the functionality of an application.
+They are generally any piece of software which act as an intermediary between two applications or services to help enhance their functionality. 
+Middlewares are generally used to parse the incoming requests to an endpoint, validate data provided by the client, avoid code repitition and such. 
+
+There are essentially three different types of Middleware
+- Built-in Middleware  - These usually come inbuilt with an application and can be easily included while writing another piece of sofware
+- Third-party middlewares are usually software written by third parties which can be easily installed using npm install
+- Custom Middleware - These are usually application specific and they are written to meet the requirements of a certain application. 
+
+```
+
+3. The basic principles of the REST architectural style.
+
+
+```
+The following principles need to be kept in mind regarding the REST architectural style
+ - Everthing accessed via the application is viewed as a resource
+ - Each resource is accessible via a unique URI (Uniform Resource Identifier)
+ - Resources can be managed using the same endpoint as long as the HTTP methods used for management are different. 
+ - Resources are managed using various HTTP methods such as GET, POST, PUT, and DELETE
+```
+
+
+4. Understand and explain the use of Express Routers.
+
+```
+Routing helps determine how the application would respond to a client request made to a particular endpoint which is a unique resource identifier (URI) along with a 
+specific HTTP method such as GET, POST, PUT, DELETE.
+
+The key components of an Express Route are:
+- router which is an instance of express.Router()
+- HTTP method used for accessing a resource, 
+- Path accessed by the client
+- Handler function which executes when a matching path is found. 
+```
+
+
+5. Describe tooling used to manually test the correctness of an API.
+
+```
+We can use freely available tools such as Postman or Insomnia to manually test the various endpoints. 
+Using these tools, we can make the various CRUD requests such as POST, GET, PUT and DELETE to see if the endpoint is functionality correctly and sending an appropriate response to the client.
+```
 
 # Code Grade Submission to Jayaram-Nair
