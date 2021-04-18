@@ -17,6 +17,7 @@ server.get('/', (req, res) => {
 })
 
 server.use(projectsRouter)
+server.use(actionsRouter)
 
 server.use((err, req, res, next) => {
     console.log(err)

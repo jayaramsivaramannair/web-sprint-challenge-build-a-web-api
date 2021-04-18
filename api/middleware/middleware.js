@@ -9,9 +9,9 @@ function logger() {
     }
 }
 
-function validateProjects() {
+function validateProjects(pid) {
     return (req, res, next) => {
-        projects.get(req.params.id)
+        projects.get(pid || req.params.id)
             .then((project) => {
                 if (project) {
                     req.project = project
@@ -20,6 +20,7 @@ function validateProjects() {
                     res.status(404).json({
                         message: "project does not exist",
                     })
+                    return;
                 }
             })
             .catch((error) => {
@@ -40,6 +41,41 @@ function validateProjectCreator() {
             })
         }
 
+        next()
+    }
+}
+
+function validateActionPost() {
+    return (req, res, next) => {
+        if (!req.body.description) {
+            return res.status(400).json({
+                message: "missing required description field",
+            })
+        } else if (!req.body.notes) {
+            return res.status(400).json({
+                message: "missing required notes field",
+            })
+        } else if (!req.body.project_id) {
+            return res.status(400).json({
+                message: "missing project_id field",
+            })
+        }
+
+        next()
+    }
+}
+
+function validateActionUpdate() {
+    return (req, res, next) => {
+        if (!req.body.description) {
+            return res.status(400).json({
+                message: "missing required description field",
+            })
+        } else if (!req.body.notes) {
+            return res.status(400).json({
+                message: "missing required notes field",
+            })
+        }
         next()
     }
 }
@@ -67,5 +103,7 @@ module.exports = {
     logger,
     validateActions,
     validateProjectCreator,
+    validateActionPost,
+    validateActionUpdate,
     validateProjects,
 }

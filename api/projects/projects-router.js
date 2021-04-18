@@ -18,6 +18,7 @@ router.get('/api/projects', (req, res, next) => {
 });
 
 router.get('/api/projects/:id', validateProjects(), (req, res) => {
+    console.log(req.project.id)
     res.json(req.project)
 })
 
