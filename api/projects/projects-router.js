@@ -17,6 +17,16 @@ router.get('/api/projects', (req, res, next) => {
         })
 });
 
+router.get('/api/projects/:id/actions', validateProjects(), (req, res, next) => {
+    projects.getProjectActions(req.params.id)
+        .then((actions) => {
+            res.status(200).json(actions)
+        })
+        .catch((error) => {
+            next(error)
+        })
+})
+
 router.get('/api/projects/:id', validateProjects(), (req, res) => {
     console.log(req.project.id)
     res.json(req.project)
